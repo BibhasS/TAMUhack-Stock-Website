@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: black;">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Stock Data Viewer</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Change the direction to stack images vertically */
+        }
+
+        .image-container img {
+            max-width: 50%;
+            margin: 15px; /* Add some spacing between the images */
+        }
+
+        /* Rest of your CSS styles... */
+
+        .button {
+            background-color: #430297;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px; /* Adjust the margin to control the distance between images and button */
+            filter: drop-shadow(0 0 1.00rem #fff);
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s, filter 0.3s;
+        }
+
+        .button:hover {
+            background-color: #430297;
+            color: #fcc201;
+            border-color: black;
+            filter: drop-shadow(0 0 1.00rem #430297);
+        }
+        
+        
+        .sticky {
+            background: #ffffff;
+            padding: 20px 120px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 100px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.8s;
+            font-size: 16px;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 21px;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        header ul {
+            position: relative;
+            display: flex;
+        }
+
+        header ul li {
+            position: relative;
+            list-style: none;
+        }
+
+        header ul li a {
+            font-size: 22px;
+            position: relative;
+            display: inline-block;
+            margin: 0 15px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        @media (max-width: 990px) {
+
+            .image-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+            
+            .image-container img {
+                margin: 15px;
+            }
+            
+            
+    header,
+    header.sticky {
+        padding: 20px 50px;
+        z-index: 1000;
+        align-items: center;
+    }
+
+    .menu {
+        position: fixed;
+        top: 75px;
+        right: -100%;
+        display: block;
+        padding: 100px 50px;
+        text-align: center;
+        width: 100%;
+        height: 100vh;
+        background: #ededed;
+        transition: 0.5s;
+        z-index: 999;
+        border-top: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .menu.active {
+        right: 0;
+    }
+
+    header ul li a {
+        color: #111;
+        font-size: 24px;
+        margin: 10px;
+    }
+
+    .toggle {
+        transition: 0.75s;
+        width: 40px;
+        height: 40px;
+        background: url(images/menu.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 30px;
+        cursor: pointer;
+    }
+
+    .toggle.active {
+        transition: 0.75s;
+        background: url(images/close.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 25px;
+        cursor: pointer;
+    }
+
+    header.sticky .toggle {
+        filter: invert(1);
+    }
+
+    .logo {
+        font-size: 15px;
+    }
+
+    .plot_image {
+        background-image: "templates/static/images/movingaverage.jpg";
+        display: flex;
+        justify-content: end;
+        align-items: flex-end;
+        flex-direction: column;
+    }
+
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+    <header class="">
+        <a href="#home" class="logo">Stock Predictor</a>
+        <ul class="menu"></ul>
+    </header>
+
+    <div class="image-container">
+      <img src="{{ url_for('static', filename='images/stockimage.png') }}" alt="Texas A&M University Logo"> 
+      <img src="{{ url_for('static', filename='images/movingaverage.png') }}" alt="Texas A&M University Logo"> 
+    </div>
+</body>
+
+</html>

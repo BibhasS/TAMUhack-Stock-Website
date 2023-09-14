@@ -1,0 +1,8 @@
+Name: Microsoft Corporation
+CurrentPrice: 334.27
+StockValuation: Fairly valued
+DayHigh: 336.16
+DayLow: 329.46
+PreviousClose: 329.91
+FiftyTwoWeekHigh: 366.78
+FiftyTwoWeekLow: 213.43
